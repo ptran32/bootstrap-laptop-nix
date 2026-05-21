@@ -107,7 +107,16 @@
       '';
   };
 
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    settings = {
+      user = {
+        name = "ptran32";
+        # GitHub no-reply (no personal email); required for commits
+        email = "ptran32@users.noreply.github.com";
+      };
+    };
+  };
 
   programs.vim = {
     enable = true;
