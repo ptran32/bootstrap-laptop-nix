@@ -1,0 +1,28 @@
+" Managed by Home Manager (programs.vim). Plugins: vim-fugitive, gruvbox-community.
+
+set nobackup
+set noswapfile
+set noundofile
+set backspace=indent,eol,start
+
+" macOS: use unnamed; Linux often supports unnamedplus
+if has('clipboard')
+  set clipboard=unnamed
+endif
+
+set mouse=r
+
+" Gruvbox (must set background + true colors before colorscheme)
+set termguicolors
+set background=dark
+let g:gruvbox_contrast_dark = 'medium'
+colorscheme gruvbox
+
+" Fast quit and save from normal and insert mode
+nnoremap <leader>x <Esc>:x<CR>
+inoremap <leader>x <Esc>:x<CR>
+
+" Optional local overrides (not managed by Nix)
+if filereadable(expand("~/.vim_runtime/my_configs.vim"))
+  source ~/.vim_runtime/my_configs.vim
+endif
