@@ -29,6 +29,10 @@
       tfenv   # Terraform via tfenv only (do not add pkgs.terraform — conflicts on bin/terraform)
       powerline-fonts
       nerd-fonts.meslo-lg
+      code-cursor
+    ]
+    ++ lib.optionals pkgs.stdenv.isDarwin [
+      rectangle   # window snapping — https://rectangleapp.com/
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       terminator
