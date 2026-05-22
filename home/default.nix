@@ -30,7 +30,6 @@
       tfenv   # Terraform via tfenv only (do not add pkgs.terraform — conflicts on bin/terraform)
       powerline-fonts
       nerd-fonts.meslo-lg
-      code-cursor
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
       rectangle   # window snapping — https://rectangleapp.com/
@@ -113,6 +112,33 @@
           eval "$(pyenv init - zsh)"
         fi
       '';
+  };
+
+  programs.cursor = {
+    enable = true;
+    # Avoid running `cursor --list-extensions` on activate (Node punycode deprecation noise).
+    mutableExtensionsDir = false;
+    profiles.default = {
+      enableExtensionUpdateCheck = false;
+      userSettings = {
+        window.autoDetectColorScheme = true;
+        workbench.preferredLightColorTheme = "Monokai Dimmed";
+        workbench.sideBar.location = "left";
+      };
+      extensions = with pkgs.vscode-extensions; [
+        ms-python.python
+        hashicorp.terraform
+        esbenp.prettier-vscode
+        eamodio.gitlens
+        ms-vscode-remote.remote-containers
+        pkief.material-icon-theme
+        redhat.vscode-yaml
+        # akamud.vscode-theme-onedark is not packaged; closest Atom One Dark port:
+        emroussel.atomize-atom-one-dark-theme
+        jdinhlife.gruvbox
+        alefragnani.project-manager
+      ];
+    };
   };
 
   programs.git = {

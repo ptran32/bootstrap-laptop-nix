@@ -22,6 +22,8 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            # Back up existing dotfiles (e.g. Cursor settings.json) on first activation.
+            home-manager.backupFileExtension = "hm-bak";
             home-manager.users.${username} = import ./home;
             home-manager.extraSpecialArgs = { inherit inputs username; };
           }
@@ -37,6 +39,8 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            # Back up existing dotfiles (e.g. Cursor settings.json) on first activation.
+            home-manager.backupFileExtension = "hm-bak";
             home-manager.users.${username} = import ./home;
             home-manager.extraSpecialArgs = { inherit inputs username; };
           }

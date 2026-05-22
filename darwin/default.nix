@@ -5,9 +5,14 @@
 
   # Terraform is BSL-licensed (unfree in nixpkgs). tfenv may pull multiple versions.
   # code-cursor is the proprietary Cursor editor.
+  # Dev Containers extension is unfree in nixpkgs.
   nixpkgs.config.allowUnfreePredicate = pkg:
     let name = lib.getName pkg;
-    in lib.hasPrefix "terraform" name || name == "cursor";
+    in lib.hasPrefix "terraform" name
+      || lib.elem name [
+        "cursor"
+        "vscode-extension-ms-vscode-remote-remote-containers"
+      ];
 
   networking.hostName = "patricetran-mac";
 
