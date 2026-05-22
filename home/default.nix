@@ -127,7 +127,7 @@
         }
         {
           key = "cmd+l";
-          command = "editor.action.selectLines";
+          command = "expandLineSelection";
           when = "editorTextFocus";
         }
       ];
