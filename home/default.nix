@@ -120,6 +120,17 @@
     mutableExtensionsDir = false;
     profiles.default = {
       enableExtensionUpdateCheck = false;
+      keybindings = [
+        {
+          key = "cmd+l";
+          command = "-aichat.insertSelectionIntoChat";
+        }
+        {
+          key = "cmd+l";
+          command = "editor.action.selectLines";
+          when = "editorTextFocus";
+        }
+      ];
       userSettings = {
         window.autoDetectColorScheme = true;
         workbench.preferredDarkColorTheme = "Gruvbox Dark Hard";
