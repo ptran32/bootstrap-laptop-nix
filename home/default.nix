@@ -122,6 +122,7 @@
       enableExtensionUpdateCheck = false;
       userSettings = {
         window.autoDetectColorScheme = true;
+        workbench.preferredDarkColorTheme = "Gruvbox Dark Hard";
         workbench.preferredLightColorTheme = "Monokai Dimmed";
         workbench.sideBar.location = "left";
       };
