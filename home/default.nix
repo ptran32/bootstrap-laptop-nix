@@ -25,6 +25,7 @@
       docker
       docker-compose
       python3Packages.pygments
+      pyenv
       zsh
       tfenv   # Terraform via tfenv only (do not add pkgs.terraform — conflicts on bin/terraform)
       powerline-fonts
@@ -107,6 +108,9 @@
       + ''
         if command -v tfenv >/dev/null 2>&1; then
           eval "$(tfenv init -)"
+        fi
+        if command -v pyenv >/dev/null 2>&1; then
+          eval "$(pyenv init - zsh)"
         fi
       '';
   };
